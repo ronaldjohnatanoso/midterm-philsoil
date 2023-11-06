@@ -38,7 +38,7 @@ var baseGroup = new ol.layer.Group({
 });
 map.addLayer(baseGroup);
 
-var add_butuan = new ol.layer.Tile({
+var add_soils = new ol.layer.Tile({
   // layers
   title: "Phil Soil",
    opacity:1,
@@ -61,7 +61,7 @@ var overlayGroup = new ol.layer.Group({
   // overlays
   title: "Overlays",
   fold: true,
-  layers: [add_butuan],
+  layers: [add_soils],
 });
 map.addLayer(overlayGroup);
 

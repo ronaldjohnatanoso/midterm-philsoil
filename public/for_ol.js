@@ -1,3 +1,8 @@
+//TEMPORARY ENVIRONMENT
+const dev = "http://localhost:8080/geoserver/ITE-18-WEBGIS"
+const prod = "http://54.66.21.47:8080/geoserver/ITE-18-WEBGIS"
+const GEOSERVER_URL = prod
+
 var mapView = new ol.View({
   center: ol.proj.fromLonLat([125.568014, 8.8904]), //Butuan City Center Coodinates
   zoom: 12,
@@ -43,7 +48,7 @@ var add_soils = new ol.layer.Tile({
   title: "Phil Soil",
    opacity:1,
   source: new ol.source.TileWMS({
-    url: "http://localhost:8080/geoserver/ITE-18-WEBGIS/wms",
+    url: GEOSERVER_URL + "/wms",
     params: {
       LAYERS: "ITE-18-WEBGIS:projected_soil",
       TILED: true,
@@ -54,9 +59,6 @@ var add_soils = new ol.layer.Tile({
 });
 
 
-
-// map.addLayer(add_butuan);
-
 var overlayGroup = new ol.layer.Group({
   // overlays
   title: "Overlays",
@@ -65,9 +67,6 @@ var overlayGroup = new ol.layer.Group({
 });
 map.addLayer(overlayGroup);
 
-//
-  
-//
 
 var layerSwitcher = new ol.control.LayerSwitcher({
   // switcher
@@ -76,9 +75,6 @@ var layerSwitcher = new ol.control.LayerSwitcher({
   groupSelectStyle: "children",
 });
 map.addControl(layerSwitcher);
-
-///
-///
 
 var mousePosition = new ol.control.MousePosition({
   // mouse position coordinates
@@ -645,7 +641,7 @@ function addMapLayerList() {
   $(document).ready(function () {
     $.ajax({
       type: "GET",
-      url: "http://localhost:8080/geoserver/ITE-18-WEBGIS/wfs?request=GetCapabilities",
+      url: GEOSERVER_URL +  "/wfs?request=GetCapabilities",
       dataType: "xml",
       success: function (xml) {
         var select = $("#selectLayer");
@@ -768,7 +764,7 @@ $(function () {
         value_txt = value_txt;
       }
       var url =
-        "http://localhost:8080/geoserver/ITE-18-WEBGIS/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=" +
+        GEOSERVER_URL + "/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=" +
         value_layer +
         "&CQL_FILTER=" +
         value_attribute +

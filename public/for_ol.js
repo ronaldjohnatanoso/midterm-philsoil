@@ -54,9 +54,6 @@ var add_soils = new ol.layer.Tile({
 });
 
 
-
-// map.addLayer(add_butuan);
-
 var overlayGroup = new ol.layer.Group({
   // overlays
   title: "Overlays",
@@ -65,9 +62,6 @@ var overlayGroup = new ol.layer.Group({
 });
 map.addLayer(overlayGroup);
 
-//
-  
-//
 
 var layerSwitcher = new ol.control.LayerSwitcher({
   // switcher
@@ -76,9 +70,6 @@ var layerSwitcher = new ol.control.LayerSwitcher({
   groupSelectStyle: "children",
 });
 map.addControl(layerSwitcher);
-
-///
-///
 
 var mousePosition = new ol.control.MousePosition({
   // mouse position coordinates

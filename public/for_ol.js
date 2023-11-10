@@ -1,3 +1,8 @@
+//TEMPORARY ENVIRONMENT
+const dev = "http://localhost:8080/geoserver/ITE-18-WEBGIS"
+const prod = "http://54.66.21.47:8080/geoserver/ITE-18-WEBGIS"
+const GEOSERVER_URL = dev
+
 var mapView = new ol.View({
   center: ol.proj.fromLonLat([125.568014, 8.8904]), //Butuan City Center Coodinates
   zoom: 12,

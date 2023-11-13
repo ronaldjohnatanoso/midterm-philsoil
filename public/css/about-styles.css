@@ -7,10 +7,10 @@ video {
     min-height: 100%;
     object-fit: cover;
     z-index: -1; /* Place the video behind other elements */
+    filter: brightness(110%);
   }
 
 .about-image {
-
     width: 360px;
     height: 350px;
     box-shadow: 5px 8px 15px 4px rgba(0, 0, 20, 0.75);

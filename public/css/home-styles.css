@@ -218,3 +218,16 @@ left: 0;
 ::-webkit-scrollbar {
     display: none;
 }
+
+
+.home-2nd-image {
+	position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place the video behind other elements */
+	filter: brightness(50%);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+  }

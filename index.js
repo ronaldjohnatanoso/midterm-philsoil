@@ -1,8 +1,12 @@
 const http = require("http");
 const path = require("path");
 const fs = require("fs");
+const cors = require("cors")
+
+const corsMiddleware = cors()
 
 const server = http.createServer((req, res) => {
+  corsMiddleware(req, res, ()=>{})
   // Build File Path
   let filePath = path.join(
     __dirname,

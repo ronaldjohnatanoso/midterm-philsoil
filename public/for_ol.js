@@ -3,6 +3,8 @@ const dev = "http://localhost:8080/geoserver/ITE-18-WEBGIS"
 const prod = "http://54.66.21.47:8080/geoserver/ITE-18-WEBGIS"
 const GEOSERVER_URL = dev
 
+const primaryThemeColor = '#FCE09B'
+
 var mapView = new ol.View({
   center: ol.proj.fromLonLat([125.568014, 8.8904]), //Butuan City Center Coodinates
   zoom: 12,
@@ -58,12 +60,26 @@ var add_soils = new ol.layer.Tile({
   }),
 });
 
+var add_soils_less_opacity = new ol.layer.Tile({
+  // layers
+  title: "Phil Soil Opacity 0.3",
+   opacity:0.3,
+  source: new ol.source.TileWMS({
+    url: GEOSERVER_URL + "/wms",
+    params: {
+      LAYERS: "ITE-18-WEBGIS:projected_soil",
+      TILED: true,
+    },
+    serverType: "geoserver",
+    visible: true,
+  }),
+});
 
 var overlayGroup = new ol.layer.Group({
   // overlays
   title: "Overlays",
   fold: true,
-  layers: [add_soils],
+  layers: [add_soils, add_soils_less_opacity],
 });
 map.addLayer(overlayGroup);
 
@@ -73,7 +89,10 @@ var layerSwitcher = new ol.control.LayerSwitcher({
   activationMode: "click",
   startActive: false,
   groupSelectStyle: "children",
+  
 });
+
+
 map.addControl(layerSwitcher);
 
 var mousePosition = new ol.control.MousePosition({
@@ -119,7 +138,7 @@ map.on("singleclick", function (e) {
     var resolution = map.getView().getResolution();
     var projection = map.getView().getProjection();
 
-    var url = add_butuan
+    var url = add_soils
       .getSource()
       .getFeatureInfoUrl(e.coordinate, resolution, projection, {
         INFO_FORMAT: "application/json",
@@ -147,11 +166,12 @@ map.on("singleclick", function (e) {
 
 var homeButton = document.createElement("button");
 homeButton.innerHTML =
-  '<img src="images/controls/home.png" alt="HOME" style="width:20px; height:20px; filter:brightness(0);vertical-align:middle"></img>';
+  '<img src="images/controls/home.png" alt="HOME" style=" width:20px; height:20px; filter:brightness(0);vertical-align:middle"></img>';
 homeButton.className = "myButton";
 
 var homeElement = document.createElement("div");
 homeElement.className = "homeButtonDiv";
+homeElement.style.backgroundColor = primaryThemeColor
 homeElement.appendChild(homeButton);
 
 var homeControl = new ol.control.Control({ element: homeElement });
@@ -166,7 +186,7 @@ var fsButton = document.createElement("button");
 fsButton.innerHTML =
   '<img src="images/controls/fullscreen.png" alt="FULLSCREEN" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 fsButton.className = "myButton";
-
+fsButton.style.backgroundColor = primaryThemeColor
 var fsElement = document.createElement("div");
 fsElement.className = "fsButtonDiv";
 fsElement.appendChild(fsButton);
@@ -194,6 +214,8 @@ var featureInfoButton = document.createElement("button");
 featureInfoButton.innerHTML =
   '<img src="images/controls/featureInfo.png" alt="FEATURE INFO" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 featureInfoButton.className = "myButton";
+
+featureInfoButton.style.backgroundColor = primaryThemeColor
 featureInfoButton.id = "featureInfoButton";
 
 var featureInfoElement = document.createElement("div");
@@ -226,6 +248,7 @@ lengthButton.id = "lengthButton";
 
 var lengthElement = document.createElement("div");
 lengthElement.className = "lengthButtonDiv";
+lengthElement.style.backgroundColor = primaryThemeColor
 lengthElement.appendChild(lengthButton);
 
 var lengthControl = new ol.control.Control({
@@ -258,6 +281,7 @@ areaButton.innerHTML =
   '<img src="images/controls/area.png" alt="AREA" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 areaButton.className = "myButton";
 areaButton.id = "areaButton";
+areaButton.style.backgroundColor = primaryThemeColor
 
 var areaElement = document.createElement("div");
 areaElement.className = "areaButtonDiv";
@@ -303,6 +327,7 @@ ziButton.id = "ziButton";
 
 var ziElement = document.createElement("div");
 ziElement.className = "ziButtonDiv";
+ziElement.style.backgroundColor = primaryThemeColor
 ziElement.appendChild(ziButton);
 
 var ziControl = new ol.control.Control({
@@ -341,6 +366,7 @@ zoButton.id = "zoButton";
 
 var zoElement = document.createElement("div");
 zoElement.className = "zoButtonDiv";
+zoElement.style.backgroundColor = primaryThemeColor
 zoElement.appendChild(zoButton);
 
 var zoControl = new ol.control.Control({
@@ -595,6 +621,7 @@ qryButton.id = "qryButton";
 
 var qryElement = document.createElement("div");
 qryElement.className = "qryButtonDiv";
+qryElement.style.backgroundColor = primaryThemeColor
 qryElement.appendChild(qryButton);
 
 var qryControl = new ol.control.Control({

@@ -166,7 +166,7 @@ map.on("singleclick", function (e) {
 
 var homeButton = document.createElement("button");
 homeButton.innerHTML =
-  '<img src="images/controls/home.png" alt="HOME" style=" width:20px; height:20px; filter:brightness(0);vertical-align:middle"></img>';
+  '<img src="images/controls/home.svg" alt="HOME" style=" width:20px;  height:20px; filter:brightness(0);vertical-align:middle"></img>';
 homeButton.className = "myButton";
 
 var homeElement = document.createElement("div");
@@ -184,7 +184,7 @@ map.addControl(homeControl);
 
 var fsButton = document.createElement("button");
 fsButton.innerHTML =
-  '<img src="images/controls/fullscreen.png" alt="FULLSCREEN" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/fullscreen.svg" alt="FULLSCREEN" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 fsButton.className = "myButton";
 fsButton.style.backgroundColor = primaryThemeColor
 var fsElement = document.createElement("div");
@@ -212,7 +212,7 @@ map.addControl(fsControl);
 
 var featureInfoButton = document.createElement("button");
 featureInfoButton.innerHTML =
-  '<img src="images/controls/featureInfo.png" alt="FEATURE INFO" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/featureInfo.svg" alt="FEATURE INFO" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 featureInfoButton.className = "myButton";
 
 featureInfoButton.style.backgroundColor = primaryThemeColor
@@ -242,7 +242,7 @@ map.addControl(featureInfoControl);
 //start of length control
 var lengthButton = document.createElement("button");
 lengthButton.innerHTML =
-  '<img src="images/controls/length.png" alt="LENGTH" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/length.svg" alt="LENGTH" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 lengthButton.className = "myButton";
 lengthButton.id = "lengthButton";
 
@@ -278,7 +278,7 @@ map.addControl(lengthControl);
 //start of areaControl
 var areaButton = document.createElement("button");
 areaButton.innerHTML =
-  '<img src="images/controls/area.png" alt="AREA" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/area.svg" alt="AREA" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 areaButton.className = "myButton";
 areaButton.id = "areaButton";
 areaButton.style.backgroundColor = primaryThemeColor
@@ -615,7 +615,7 @@ var featureOverlay;
 
 var qryButton = document.createElement("button");
 qryButton.innerHTML =
-  '<img src="images/controls/attribute-query.png" alt="ATTRIBUTE-QUERY" style="width: 20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/attribute-query.svg" alt="ATTRIBUTE-QUERY" style="width: 20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 qryButton.className = "myButton";
 qryButton.id = "qryButton";
 
@@ -988,4 +988,59 @@ function newaddRowHandlers() {
   }
 }
 //end of attribute query control
+
+
+// Define soil colors and descriptions
+const soilColors = {
+  'Clay': '#9013fe',
+  'Land': '#b7b89f',
+  'Sand': '#efdc05',
+  'Loam': '#c68f5f',
+  'Clay Loam': '#f5a623',
+  'Clay Silt': '#8e631c',
+  'Soil': '#d2627c',
+  'Coarse Sand': '#898bdf',
+  'Complex': '#4794c4',
+  'Fine Sand': '#cd4aeb',
+  'Loam Silt': '#79f980',
+  'Sandy Clay': '#81c10c',
+  'Sandy Loam': '#2629e8',
+  'null': '#50e3c2',
+  'others': '#0E1058'
+};
+
+console.log(soilColors);
+
+// Create a legend div
+var legendDiv = document.createElement('div');
+legendDiv.id = 'legend';
+legendDiv.style.position = 'fixed';
+legendDiv.style.top = '200px';
+legendDiv.style.left = '10px';
+legendDiv.style.background = 'rgba(255, 255, 255, 0.8)';
+legendDiv.style.padding = '10px';
+legendDiv.style.borderRadius = '5px';
+
+// Add labels to the legend based on soilColors
+for (const soilDesc in soilColors) {
+  var label = document.createElement('div');
+  label.style.display = 'flex';
+  label.style.alignItems = 'center';
+
+  var colorBox = document.createElement('div');
+  colorBox.style.width = '20px';
+  colorBox.style.height = '20px';
+  colorBox.style.backgroundColor = soilColors[soilDesc];
+  colorBox.style.marginRight = '5px';
+
+  var labelText = document.createElement('span');
+  labelText.textContent = soilDesc;
+
+  label.appendChild(colorBox);
+  label.appendChild(labelText);
+  legendDiv.appendChild(label);
+}
+
+// Append legend to the map container
+document.getElementById('map').appendChild(legendDiv);
 

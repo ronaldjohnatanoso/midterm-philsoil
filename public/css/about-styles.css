@@ -11,6 +11,7 @@ video {
   }
 
 .about-image {
+    margin-bottom: 10rem;
     width: 360px;
     height: 350px;
     box-shadow: 5px 8px 15px 4px rgba(0, 0, 20, 0.75);
@@ -22,9 +23,9 @@ video {
 .text-container {
     padding: 10px;
     border: 1px solid #ccc;
-    display: inline-block;
+    /* display: inline-block; */
     background: rgb(208, 158, 66);
-    
+
 }
 
 /* div {

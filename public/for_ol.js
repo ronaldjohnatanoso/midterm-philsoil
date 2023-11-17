@@ -165,7 +165,7 @@ map.on("singleclick", function (e) {
 
 var homeButton = document.createElement("button");
 homeButton.innerHTML =
-  '<img src="images/controls/home.svg" alt="HOME" style=" width:20px;  height:20px; filter:brightness(0);vertical-align:middle"></img>';
+  '<img src="images/controls/home.svg" alt="HOME" style=" padding-left: 3px; width:40px;  height:20px; filter:brightness(0);vertical-align:middle"></img>';
 homeButton.className = "myButton";
 
 var homeElement = document.createElement("div");
@@ -183,7 +183,7 @@ map.addControl(homeControl);
 
 var fsButton = document.createElement("button");
 fsButton.innerHTML =
-  '<img src="images/controls/fullscreen.svg" alt="FULLSCREEN" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/fullscreen.svg" alt="FULLSCREEN" style="padding-left: 3px; width:40px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 fsButton.className = "myButton";
 fsButton.style.backgroundColor = primaryThemeColor
 var fsElement = document.createElement("div");
@@ -211,7 +211,7 @@ map.addControl(fsControl);
 
 var featureInfoButton = document.createElement("button");
 featureInfoButton.innerHTML =
-  '<img src="images/controls/featureInfo.svg" alt="FEATURE INFO" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/featureInfo.svg" alt="FEATURE INFO" style="padding-left: 3px; width:40px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 featureInfoButton.className = "myButton";
 
 featureInfoButton.style.backgroundColor = primaryThemeColor
@@ -241,7 +241,7 @@ map.addControl(featureInfoControl);
 //start of length control
 var lengthButton = document.createElement("button");
 lengthButton.innerHTML =
-  '<img src="images/controls/length.svg" alt="LENGTH" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/length.svg" alt="LENGTH" style="padding-left: 3px; width:40px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 lengthButton.className = "myButton";
 lengthButton.id = "lengthButton";
 
@@ -277,7 +277,7 @@ map.addControl(lengthControl);
 //start of areaControl
 var areaButton = document.createElement("button");
 areaButton.innerHTML =
-  '<img src="images/controls/area.svg" alt="AREA" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/area.svg" alt="AREA" style="padding-left: 3px; width:40px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 areaButton.className = "myButton";
 areaButton.id = "areaButton";
 areaButton.style.backgroundColor = primaryThemeColor
@@ -320,7 +320,7 @@ zoomInInteraction.on("boxend", function () {
 
 var ziButton = document.createElement("button");
 ziButton.innerHTML =
-  '<img src="images/controls/zoom-in.png" alt="ZOOM-IN" style="width:20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/zoom-in.png" alt="ZOOM-IN" style=" padding-left: 3px; width:40px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 ziButton.className = "myButton";
 ziButton.id = "ziButton";
 
@@ -359,7 +359,7 @@ zoomOutInteraction.on("boxend", function () {
 
 var zoButton = document.createElement("button");
 zoButton.innerHTML =
-  '<img src="images/controls/zoom-out.png" alt= "ZOOM OUT" style="width:20px; height:20px; filter:brightness(0);vertical-align:middle"></img>';
+  '<img src="images/controls/zoom-out.png" alt= "ZOOM OUT" style="padding-left: 3px; width:40px; height:20px; filter:brightness(0);vertical-align:middle"></img>';
 zoButton.className = "myButton";
 zoButton.id = "zoButton";
 
@@ -614,7 +614,7 @@ var featureOverlay;
 
 var qryButton = document.createElement("button");
 qryButton.innerHTML =
-  '<img src="images/controls/attribute-query.svg" alt="ATTRIBUTE-QUERY" style="width: 20px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
+  '<img src="images/controls/attribute-query.svg" alt="ATTRIBUTE-QUERY" style="padding-left: 3px; width: 40px; height:20px; filter:brightness(0); vertical-align:middle"></img>';
 qryButton.className = "myButton";
 qryButton.id = "qryButton";
 

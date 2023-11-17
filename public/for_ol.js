@@ -1,6 +1,5 @@
 //TEMPORARY ENVIRONMENT
 const dev = "http://localhost:8080/geoserver/ITE-18-WEBGIS"
-const prod = "http://54.66.21.47:8080/geoserver/ITE-18-WEBGIS"
 const GEOSERVER_URL = dev
 
 const primaryThemeColor = '#FCE09B'
@@ -1006,7 +1005,7 @@ const soilColors = {
   'Sandy Clay': '#81c10c',
   'Sandy Loam': '#2629e8',
   'null': '#50e3c2',
-  'others': '#0E1058'
+  'others': '#808080'
 };
 
 console.log(soilColors);

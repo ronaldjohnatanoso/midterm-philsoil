@@ -543,7 +543,7 @@ function createHelpTooltip() {
 }
 
 map.getViewport().addEventListener("mouseout", function () {
- helpTooltipElement.classList.add("hidden");
+ //helpTooltipElement.classList.add("hidden");
 });
 
 /**
